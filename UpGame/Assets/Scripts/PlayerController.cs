@@ -5,19 +5,28 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public const int MAX_JUMP_COUNT = 2;
-    public float jumpforce = 5.0f;
+    private float jumpforce = 7.0f;
     private Vector3 side = new Vector3(0.1f, 0f, 0f);
     private int jumpcount = 0;
     private bool isJump = false;
+    public GameObject goal;
+    private int timecheck = 0;
     void start()
     {
-        this.gameObject.transform.position = new Vector3(-18.0f, -8.0f, 0.0f);
+        transform.position = new Vector3(-18.0f, -8.0f, 0.0f);
     }
     void Update()
     {
         if(jumpcount < MAX_JUMP_COUNT && Input.GetKeyDown(KeyCode.W)){
             isJump = true;
         }   
+        if(timecheck == 0){
+            Debug.Log(Time.time);
+        }
+        if(timecheck == 1){
+            Debug.Log("END");
+            timecheck++;
+        }
     }
 
     void FixedUpdate()
@@ -48,6 +57,10 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "floor"){
             jumpcount = 0;
+        }
+        if(collision.gameObject.tag == "goal"){
+            timecheck++;
+            Destroy(goal);
         }
     }
 }
