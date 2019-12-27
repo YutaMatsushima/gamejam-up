@@ -12,7 +12,7 @@ public class TimeManager : MonoBehaviour
     {
         Text time_text = time_object.GetComponent<Text>();
         if(timecheck == 0){
-            time_text.text = "Time:" + Time.time;
+            time_text.text = "Time:" + (Time.time - 2.5f);
         }
         if(timecheck == 1){
             Debug.Log("END");

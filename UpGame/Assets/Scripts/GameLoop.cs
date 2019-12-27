@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLoop : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public GameObject player;
+    public GameObject goal;
     void Update()
     {
-        
+        if(!player.activeSelf || !goal.activeSelf){
+            if(Input.GetKeyDown(KeyCode.Space)){
+                SceneManager.LoadScene("Start");
+            }
+        }
     }
 }

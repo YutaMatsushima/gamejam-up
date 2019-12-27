@@ -9,7 +9,7 @@ public class GoalMove : MonoBehaviour
     public GameObject clear;
     void Start()
     {
-        transform.position = new Vector3(16.0f, 9.0f, 0.0f);
+        transform.position = new Vector3(14.0f, 9.0f, 0.0f);
         transform.eulerAngles = new Vector3(45.0f, 0.0f, 0.0f);
         timemanager = GameObject.Find("TimeManager");
         script = timemanager.GetComponent<TimeManager>();
@@ -28,7 +28,7 @@ public class GoalMove : MonoBehaviour
         if(other.gameObject.name == "Player"){
             script.timecheck++;
             clear.SetActive(true);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }
