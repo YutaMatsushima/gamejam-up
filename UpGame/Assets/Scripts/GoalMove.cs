@@ -6,6 +6,7 @@ public class GoalMove : MonoBehaviour
 {
     private GameObject timemanager;
     private TimeManager script;
+    public GameObject clear;
     void Start()
     {
         transform.position = new Vector3(16.0f, 9.0f, 0.0f);
@@ -26,6 +27,7 @@ public class GoalMove : MonoBehaviour
     {
         if(other.gameObject.name == "Player"){
             script.timecheck++;
+            clear.SetActive(true);
             Destroy(this.gameObject);
         }
     }
