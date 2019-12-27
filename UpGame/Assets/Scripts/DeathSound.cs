@@ -14,7 +14,7 @@ public class DeathSound : MonoBehaviour
     }
     void Update()
     {
-        if (player.transform.position.y < -10.0f && count == 0) {
+        if (!player.activeSelf && count == 0) {
             audioSource.PlayOneShot(sound1);
             count++;
         }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
     public int timecheck = 0;
+    public GameObject player;
     public GameObject time_object = null;
     void Update()
     {
@@ -15,6 +16,9 @@ public class TimeManager : MonoBehaviour
         }
         if(timecheck == 1){
             Debug.Log("END");
+            timecheck++;
+        }
+        if(!player.activeSelf){
             timecheck++;
         }
     }
